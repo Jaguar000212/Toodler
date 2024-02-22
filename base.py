@@ -43,7 +43,7 @@ class BaseMain(ct.CTk):
 
         ct.CTkLabel(
             self.toolset, text="Select a tool to launch -", font=self.subhead_font
-        ).grid(row=0, column=0, columnspan=1, sticky="n", padx=50, pady=10)
+        ).grid(row=0, column=0, columnspan=2, sticky="n", padx=50, pady=10)
 
         # Close Buttons
         ct.CTkButton(
