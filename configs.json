@@ -1,5 +1,5 @@
 {
-    "api_keys" : {
-        "lyricsGenius" : ""
+    "api_keys": {
+        "lyricsGenius": "YOUR_API_KEY"
     }
 }
