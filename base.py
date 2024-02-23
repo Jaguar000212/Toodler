@@ -5,7 +5,6 @@ import json
 
 
 class BaseMain(ct.CTk):
-
     def __init__(self, tool_name: str, icon_path: str = None):
         super().__init__()
 
@@ -52,7 +51,6 @@ class BaseMain(ct.CTk):
 
 
 class BaseSub(ct.CTkToplevel):
-
     def __init__(self, parent: ct.CTk, tool_name: str, icon_path: str = None):
         super().__init__()
 
