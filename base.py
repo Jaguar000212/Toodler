@@ -1,5 +1,5 @@
 import customtkinter as ct
-from tkinter import messagebox, Scrollbar, Listbox, PhotoImage
+from tkinter import messagebox, Scrollbar, Listbox
 
 import json
 

@@ -1,6 +1,5 @@
 import customtkinter as ct
 from base import BaseMain
-from tkinter import PhotoImage
 
 from lyrically import Lyrically
 
