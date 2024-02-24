@@ -61,9 +61,7 @@ class Lyrically(BaseSub):
         ).pack(pady=10)
 
     def getLyrics(self):
-        """
-        Retrieves the lyrics of a song.
-        """
+        """Retrieves the lyrics of a song."""
         self.reset()
         name = self.name.get()
 
@@ -91,9 +89,7 @@ class Lyrically(BaseSub):
         return True
 
     def reset(self):
-        """
-        Resets the Lyrically tool.
-        """
+        """Resets the Lyrically tool."""
         try:
             self.lyrics.pack_forget()
         except AttributeError:
