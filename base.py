@@ -42,7 +42,7 @@ class BaseMain(ct.CTk):
 
         ct.CTkLabel(
             self.toolset, text="Select a tool to launch -", font=self.subhead_font
-        ).grid(row=0, column=0, columnspan=1, sticky="n", padx=50, pady=10)
+        ).grid(row=0, column=0, columnspan=2, sticky="n", padx=50, pady=10)
 
         # Close Buttons
         ct.CTkButton(
@@ -71,9 +71,9 @@ class BaseSub(ct.CTkToplevel):
         self.listbox = Listbox
 
         self.head_font = ct.CTkFont(family="Kristen ITC", size=80, weight="bold")
+        self.subhead_font = ct.CTkFont(family="Ariel", size=40, weight="bold")
         self.tagline_font = ct.CTkFont(family="RomanT", size=25)
         self.content_font = ct.CTkFont(family="Ariel", size=20)
-        self.subhead_font = ct.CTkFont(family="Ariel", size=40, weight="bold")
 
         # Close Buttons
         ct.CTkButton(
