@@ -1,24 +1,29 @@
 import customtkinter as ct
+
 from base import BaseMain
-
-from lyrically import Lyrically
-from translator import TextTranslator
+from tools import Lyrically, TextTranslator
 
 
-# Commands
 def launch_lyrically():
+    """
+    Launches the Lyrically application.
+    Disables the 'toodler' attribute and initializes a Lyrically object.
+    """
     toodler.attributes("-disabled", True)
     lyrically = Lyrically(toodler, toodler.configs["api_keys"]["lyricsGenius"])
     lyrically.mainloop()
 
 
 def launch_translator():
+    """
+    Launches the translator application.
+    Disables the 'toodler' attribute and initializes a TextTranslator object.
+    """
     toodler.attributes("-disabled", True)
     translator = TextTranslator(toodler)
     translator.mainloop()
 
 
-# Window setup
 toodler = BaseMain("Toodler", "Toodler.ico")
 
 ct.CTkButton(

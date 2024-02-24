@@ -1,11 +1,25 @@
 import customtkinter as ct
 from tkinter import messagebox, Scrollbar, Listbox
-
 import json
 
 
 class BaseMain(ct.CTk):
+    """
+    Represents the main window of the Toodler application.
+
+    Args:
+        tool_name (str): The name of the tool.
+        icon_path (str, optional): The path to the icon file. Defaults to None.
+    """
+
     def __init__(self, tool_name: str, icon_path: str = None):
+        """
+        Initializes the BaseMain class.
+
+        Args:
+            tool_name (str): The name of the tool.
+            icon_path (str, optional): The path to the icon file. Defaults to None.
+        """
         super().__init__()
 
         with open("configs.json", "r") as config_file:
@@ -16,7 +30,8 @@ class BaseMain(ct.CTk):
         self.attributes("-fullscreen", True)
 
         self.wm_title(tool_name)
-        self.iconbitmap(icon_path)
+        if icon_path:
+            self.iconbitmap(icon_path)
 
         self.messagebox = messagebox
         self.scrollbar = Scrollbar
@@ -27,16 +42,11 @@ class BaseMain(ct.CTk):
         self.content_font = ct.CTkFont(family="Ariel", size=20)
         self.subhead_font = ct.CTkFont(family="Ariel", size=40, weight="bold")
 
-        # Main content
-        # Title
         ct.CTkLabel(self, text="Welcome to Toodler", font=self.head_font).pack()
-
-        # Tagline
         ct.CTkLabel(
             self, text="A perfect Toolkit for all your needs!", font=self.tagline_font
         ).pack(ipady=50)
 
-        # Tools frame
         self.toolset = ct.CTkFrame(self)
         self.toolset.pack()
 
@@ -44,14 +54,30 @@ class BaseMain(ct.CTk):
             self.toolset, text="Select a tool to launch -", font=self.subhead_font
         ).grid(row=0, column=0, columnspan=2, sticky="n", padx=50, pady=10)
 
-        # Close Buttons
         ct.CTkButton(
             self, text="Close", font=self.content_font, command=self.destroy
         ).pack(pady=10, side="bottom")
 
 
 class BaseSub(ct.CTkToplevel):
+    """
+    Represents a sub-window of the Toodler application.
+
+    Args:
+        parent (ct.CTk): The parent window.
+        tool_name (str): The name of the tool.
+        icon_path (str, optional): The path to the icon file. Defaults to None.
+    """
+
     def __init__(self, parent: ct.CTk, tool_name: str, icon_path: str = None):
+        """
+        Initializes the BaseSub class.
+
+        Args:
+            parent (ct.CTk): The parent window.
+            tool_name (str): The name of the tool.
+            icon_path (str, optional): The path to the icon file. Defaults to None.
+        """
         super().__init__()
 
         with open("configs.json", "r") as config_file:
@@ -62,7 +88,8 @@ class BaseSub(ct.CTkToplevel):
         self.attributes("-fullscreen", True)
 
         self.wm_title(tool_name)
-        self.iconbitmap(icon_path)
+        if icon_path:
+            self.iconbitmap(icon_path)
 
         self.parent = parent
 
@@ -75,11 +102,14 @@ class BaseSub(ct.CTkToplevel):
         self.tagline_font = ct.CTkFont(family="RomanT", size=25)
         self.content_font = ct.CTkFont(family="Ariel", size=20)
 
-        # Close Buttons
         ct.CTkButton(
             self, text="Close", font=self.content_font, command=self.close
         ).pack(pady=10, side="bottom")
 
     def close(self):
+        """
+        Closes the sub-window and enables the parent window.
+        """
         self.parent.attributes("-disabled", False)
         self.destroy()
+        self.parent.attributes("-disabled", False)
