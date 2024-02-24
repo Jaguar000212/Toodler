@@ -7,7 +7,6 @@ from base import BaseSub
 
 
 class TextTranslator(BaseSub):
-
     def __init__(self, parent: ct.CTk):
         super().__init__(parent, "Translator", "translator\\Translator.ico")
 
@@ -99,7 +98,7 @@ class TextTranslator(BaseSub):
         try:
             otext = self.translator.translate(itext, olang, ilang)
         except ValueError:
-                raise InvalidLanguage("")
+            raise InvalidLanguage("")
         except ConnectError:
             self.messagebox.error("Failed", "Can't Connect to the internet.")
 
