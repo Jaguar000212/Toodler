@@ -71,9 +71,9 @@ class BaseSub(ct.CTkToplevel):
         self.listbox = Listbox
 
         self.head_font = ct.CTkFont(family="Kristen ITC", size=80, weight="bold")
+        self.subhead_font = ct.CTkFont(family="Ariel", size=40, weight="bold")
         self.tagline_font = ct.CTkFont(family="RomanT", size=25)
         self.content_font = ct.CTkFont(family="Ariel", size=20)
-        self.subhead_font = ct.CTkFont(family="Ariel", size=40, weight="bold")
 
         # Close Buttons
         ct.CTkButton(
