@@ -107,9 +107,7 @@ class BaseSub(ct.CTkToplevel):
         ).pack(pady=10, side="bottom")
 
     def close(self):
-        """
-        Closes the sub-window and enables the parent window.
-        """
+        """Closes the sub-window and enables the parent window."""
         self.parent.attributes("-disabled", False)
         self.destroy()
         self.parent.attributes("-disabled", False)
