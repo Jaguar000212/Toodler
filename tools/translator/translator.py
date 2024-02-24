@@ -29,7 +29,6 @@ class TextTranslator(BaseSub):
         Args:
         - parent: A CTk object representing the parent window.
         """
-
         super().__init__(parent, "Translator", "tools\\translator\\Translator.ico")
 
         self.translator = Translator()
